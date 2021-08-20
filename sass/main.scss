@@ -1,0 +1,40 @@
+@import 'variables';
+
+body {
+    @include centered-flex;
+    flex-direction: column;
+    background: linear-gradient(to top, $Soft-blue, $Soft-violet) no-repeat;
+    height: 150vh;
+}
+
+// MAIN CONTAINER
+#main-container {
+    @include centered-flex;
+    flex-direction: column;
+    background-color: white;
+    border-radius: 15px;
+    padding: 0 1.2rem 3rem;
+    width: 80%;
+    max-width: 500px;
+}
+
+// ILLUSTRATION CONTAINER
+#illustration {
+    @include centered-flex;
+    flex-direction: column;
+
+    #main-image {
+        content: url(../images/illustration-woman-online-mobile.svg);
+    }
+    #box-image {
+        display: none;
+    }
+    #main-image-shadow {
+        content: url(../images/bg-pattern-mobile.svg);
+    }
+}
+
+footer {
+    display: none;
+}
+
