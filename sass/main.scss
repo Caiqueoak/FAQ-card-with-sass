@@ -25,18 +25,28 @@ body {
   flex-direction: column;
   height: 125px;
   margin-bottom: 10px;
-  transform: translateY(-20px);
+  transform: translateY(-60px);
 
-  #main-image {
-    transform: translate(-15px);
-    content: url(../images/illustration-woman-online-mobile.svg);
+  #overflow-images {
+    @include centered-flex;
+    flex-direction: column;
+
+    #images-container {
+      @include centered-flex;
+
+      #main-image {
+        transform: translate(-15px, -15px);
+        position: absolute;
+        content: url(../images/illustration-woman-online-mobile.svg);
+      }
+      #main-image-shadow {
+        transform: translate(0,45px);
+        content: url(../images/bg-pattern-mobile.svg);
+      }
+    }
   }
   #box-image {
     display: none;
-  }
-  #main-image-shadow {
-    transform: translateY(-85px);
-    content: url(../images/bg-pattern-mobile.svg);
   }
 }
 
@@ -84,83 +94,94 @@ footer {
   body {
     height: 100vh;
   }
-  // MAIN CONTAINER
+    // MAIN CONTAINER
   #main-container {
     flex-direction: row;
-    padding: 0 1.2rem 3.25rem;
+    padding: 0;
+    height: 100%;
+    max-height: 450px;
     width: 80%;
-    overflow: hidden;
-    max-width: 800px;
+    max-width: 850px;
   }
+
   // ILLUSTRATION CONTAINER
   #illustration {
-    @include centered-flex;
-    flex-direction: column;
-    width: 30%;
-    height: 50vh;
-    transform: none;
+    height: 100%;
+    width: 100%;
+    margin-bottom: 0;
+    transform: translateY(2vh);
 
     #overflow-images {
-      height: 100%;
       width: 100%;
+      height: 100%;
+      overflow: hidden;
 
-      #main-image {
-          width: 50%;
-          height: 50%;
-        transform: none;
-        content: url(../images/illustration-woman-online-desktop.svg);
-      }
-      #main-image-shadow {
-        position: absolute;
-        height: 100%;
+      #images-container {
+        @include centered-flex;
         width: 100%;
-        transform: translateY(20px);
-        content: url(../images/bg-pattern-desktop.svg);
+        height: 100%;
+        transform: translateX(-15%);
+
+        #main-image {
+          position: absolute;
+          width: 42vw;
+          max-width: 400px;
+          content: url(../images/illustration-woman-online-desktop.svg);
+        }
+        #main-image-shadow {
+          position: absolute;
+          width: 80vw;
+          max-width: fit-content;
+          transform: translate(-21.5vw, -8vw);
+          content: url(../images/bg-pattern-desktop.svg);
+        }
       }
-    }
-    #box-image {
-      position: absolute;
-      display: inline;
-      width: 125px;
-      transform: translate(-100px, 30px);
+      #box-image {
+        position: absolute;
+        display: inline;
+        width: 15vw;
+        max-width: 160px;
+        transform: translate(calc(-19vw), 26px);
+        @media screen and (min-width: 1024px) {
+          transform: translate(calc(-20.2vw), 26px);
+        }
+        @media screen and (min-width: 1075px) {
+          transform: translate(calc(-15.2vw), 26px);
+        }
+      }
     }
   }
 
   // FAQ SECTION
-
   #FAQ-section {
     width: 100%;
-    max-width: 400px;
-    font-size: 0.9rem;
-    color: $Very-dark-desaturated-blue;
-    display: flex;
-    flex-direction: column;
+    max-width: 335px;
+    padding: 5% 6vw 7% 0;
+    @media screen and (min-width: 1024px) {
+      padding-right: 7vw;
+    }
 
     #FAQ-title {
-      text-align: center;
+      text-align: left;
       font-size: 2rem;
-      padding-bottom: 20px;
-      color: $Very-dark-desaturated-blue;
+      padding-bottom: 3%;
     }
-    .FAQ-containers {
-      display: grid;
-      grid-template-columns: 97% auto;
-      align-items: center;
-      justify-content: start;
-      padding: 20px 0;
-      border-bottom: 1px solid $Light-grayish-blue;
+    #FAQ {
+      //padding-bottom: 50px;
 
-      .questions {
-        padding-right: 20px;
-      }
-      .answers {
-        display: none;
+      .FAQ-containers {
+        display: grid;
+        grid-template-columns: 97% auto;
+        padding: 17px 1% 17px 0;
+        border-bottom: 1px solid $Light-grayish-blue;
+  
+        .questions {
+          padding-right: 20px;
+        }
+        .answers {
+          display: none;
+        }
       }
     }
-  }
-
-  // FOOTER
-  footer {
-    display: none;
   }
 }
