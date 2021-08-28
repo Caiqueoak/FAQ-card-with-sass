@@ -1,23 +1,23 @@
 @import "variables";
 
+// MOBILE RESOLUTION
+
 body {
   @include centered-flex;
   background: linear-gradient(to top, $Soft-blue, $Soft-violet) no-repeat;
   height: 150vh;
 }
 
-// MOBILE RESOLUTION
-
 // MAIN CONTAINER
 #main-container {
   @include centered-flex;
   flex-direction: column;
   background-color: white;
+  transform: translateY(40px);
   border-radius: 15px;
   padding: 0 1.2rem 3.25rem;
   width: 80%;
   max-width: 500px;
-  transform: translateY(40px);
   box-shadow: 0 10px 25px -5px black;
 }
 
@@ -25,9 +25,9 @@ body {
 #illustration {
   @include centered-flex;
   flex-direction: column;
+  transform: translateY(-60px);
   height: 125px;
   margin-bottom: 10px;
-  transform: translateY(-60px);
 
   #overflow-images {
     @include centered-flex;
@@ -42,7 +42,7 @@ body {
         content: url(../images/illustration-woman-online-mobile.svg);
       }
       #main-image-shadow {
-        transform: translate(0,45px);
+        transform: translate(0, 45px);
         content: url(../images/bg-pattern-mobile.svg);
       }
     }
@@ -54,27 +54,40 @@ body {
 
 // FAQ SECTION
 #FAQ-section {
-  width: 100%;
-  max-width: 400px;
-  font-size: 0.9rem;
   color: $Very-dark-desaturated-blue;
   display: flex;
   flex-direction: column;
+  width: 100%;
+  max-width: 400px;
+  font-size: 0.9rem;
+  
 
   #FAQ-title {
     text-align: center;
+    color: $Very-dark-desaturated-blue;
     font-size: 2rem;
     padding-bottom: 20px;
-    color: $Very-dark-desaturated-blue;
   }
   .FAQ-containers {
     display: grid;
     grid-template-columns: 97% auto;
     align-items: center;
     justify-content: start;
-    padding: 15px 0;
     border-bottom: 1px solid $Light-grayish-blue;
+    padding: 15px 0;
 
+    &:hover {
+      cursor: pointer;
+
+      .questions {
+        font-size: 0.95rem;
+      }
+      .FAQ-icons {
+        cursor: pointer;
+        width: 160%;
+        filter: drop-shadow(0 0 3px $Soft-red);
+      }
+    }
     .questions {
       padding-right: 20px;
     }
@@ -90,16 +103,24 @@ body {
 
 // FOOTER
 footer {
-  display: none;
+  position: absolute;
+  text-align: center;
+  padding: 5px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  top: 140vh;
 }
 
 // DESKTOP RESOLUTION
 
 @media screen and (min-width: 768px) {
   body {
+    @media screen and (max-width: 1079) {
+      height: 110vh;
+    }
     height: 100vh;
   }
-    // MAIN CONTAINER
+  // MAIN CONTAINER
   #main-container {
     flex-direction: row;
     padding: 0;
@@ -173,7 +194,7 @@ footer {
     #FAQ-title {
       text-align: left;
       font-size: 2rem;
-      padding: 15% 0 4%;
+      padding: 20% 0 4%;
     }
     #FAQ {
       padding-bottom: 30px;
@@ -183,19 +204,17 @@ footer {
         grid-template-columns: 97% auto;
         padding: 15px 1% 15px 0;
         border-bottom: 1px solid $Light-grayish-blue;
-  
+
         .questions {
           padding-right: 20px;
         }
-        .FAQ-icons {
-    
-          &:hover {
-            cursor: pointer;
-            width: 160%;
-            filter: drop-shadow(0 0 3px $Soft-red);
-          }
-        }
       }
     }
+  }
+  footer {
+    @media screen and (max-width: 1079) {
+      top: 103vh;
+    }
+    top: 94vh;
   }
 }

@@ -1,19 +1,16 @@
 /*TODO:
-- FIX THE FONTS COLORS
-- FIX MINOR DETAILS ABOUT POSITIONING
-- ADD THE CLICK EFFECT ON THE QUESTIONS + ARROW CONTAINERS
-- ADD FOOTER
-- FATORAR O CÓDIGO INTEIRO
+- ADJUST RESIZE MOBILE PROPORTIONALITY
 */
 
-const buttons = document.querySelectorAll('.FAQ-icons');
+const icons = document.querySelectorAll('.FAQ-icons');
+const containers = document.querySelectorAll('.FAQ-containers');
 const answers = document.querySelectorAll('.answers');
 const questions = document.querySelectorAll('.questions');
 let height = 150;
 
 function showAnswer(x) {
     // Get the answer equivalent index
-    let index = Array.prototype.indexOf.call(buttons, x);
+    let index = Array.prototype.indexOf.call(containers, x);
     // Get the current display value of the answer
     let displayState = (getComputedStyle(answers[index]).display);
 
@@ -25,11 +22,11 @@ function showAnswer(x) {
             questions[index].style.fontWeight = '700';
 
             // Flips the image
-            x.style.transform = 'rotate(180deg)';
+            icons[index].style.transform = 'rotate(180deg)';
 
             // Extends the body height
-            if (height < 200) {
-                height += 10;
+            if (height < 225) {
+                height += 15;
                 document.body.style.height = `${height}vh`;
             }
             
@@ -42,35 +39,33 @@ function showAnswer(x) {
             questions[index].style.fontWeight = '400';
 
             // Flips the image
-            x.style.transform = 'rotate(360deg)';
+            icons[index].style.transform = 'rotate(360deg)';
 
             // Decreases the body height
             if (height > 150) {
-                height -= 10;
+                height -= 15;
                 document.body.style.height = `${height}vh`;
             }
 
             // Hides the answer
             answers[index].style.display = 'none';
-        }   
+        }
+        // updates footer position
+        document.querySelector('footer').style.top = `${height-10}vh`;   
     }
     // DESKTOP RESOLUTION
     else {
-        // Body height reset
-        document.body.style.height = '100vh';
-
         // Closed FAQ
         if (displayState == 'none') {
             // Alters the answer's font style
             questions[index].style.fontWeight = '700';
 
             // Flips the image
-            x.style.transform = 'rotate(180deg)';
+            icons[index].style.transform = 'rotate(180deg)';
 
-            // Extends the body height
-            if (height < 200) {
-                height += 10;
-                //document.body.style.height = `${height}vh`;
+            // Updates the body height for responsivess in mobile
+            if (height < 225) {
+                height += 15;
             }
             
             // displays the answer
@@ -82,12 +77,11 @@ function showAnswer(x) {
             questions[index].style.fontWeight = '400';
 
             // Flips the image
-            x.style.transform = 'rotate(360deg)';
+            icons[index].style.transform = 'rotate(360deg)';
 
-            // Decreases the body height
+            // Updates the body height for responsivess in mobile
             if (height > 150) {
-                height -= 10;
-                //document.body.style.height = `${height}vh`;
+                height -= 15;
             }
 
             // Hides the answer
@@ -96,6 +90,27 @@ function showAnswer(x) {
     }
 }
 
+// Body height update on resize
+window.onresize = () => {
+    // Mobile resolution
+    if (window.innerWidth < 768) {
+        document.body.style.height = `calc(${height}vh - 5vh)`;
+        // updates footer position
+        document.querySelector('footer').style.top = `calc(${height}vh - 15vh)`;  
+    }
+    // Tablet resolution
+    else if (window.innerWidth >= 768 && window.innerWidth < 1080) {
+        document.body.style.height = '110vh';
+        // updates footer position
+        document.querySelector('footer').style.top = `103vh`;
+    }
+    // Desktop resolution
+    else {
+        document.body.style.height = '100vh';
+        // updates footer position
+        document.querySelector('footer').style.top = `94vh`;
+    }
+}
+
 // calls the showAnswer function to all arrow icons
-buttons.forEach(x => x.onclick = 
-    function() {showAnswer(x)});
+containers.forEach(x => x.onclick = function() {showAnswer(x)});

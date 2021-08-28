@@ -22,11 +22,11 @@ body {
   justify-content: center;
   flex-direction: column;
   background-color: white;
+  transform: translateY(40px);
   border-radius: 15px;
   padding: 0 1.2rem 3.25rem;
   width: 80%;
   max-width: 500px;
-  transform: translateY(40px);
   box-shadow: 0 10px 25px -5px black;
 }
 
@@ -35,9 +35,9 @@ body {
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  transform: translateY(-60px);
   height: 125px;
   margin-bottom: 10px;
-  transform: translateY(-60px);
 }
 
 #illustration #overflow-images {
@@ -69,19 +69,19 @@ body {
 }
 
 #FAQ-section {
-  width: 100%;
-  max-width: 400px;
-  font-size: 0.9rem;
   color: #1d1e35;
   display: flex;
   flex-direction: column;
+  width: 100%;
+  max-width: 400px;
+  font-size: 0.9rem;
 }
 
 #FAQ-section #FAQ-title {
   text-align: center;
+  color: #1d1e35;
   font-size: 2rem;
   padding-bottom: 20px;
-  color: #1d1e35;
 }
 
 #FAQ-section .FAQ-containers {
@@ -89,8 +89,22 @@ body {
   grid-template-columns: 97% auto;
   align-items: center;
   justify-content: start;
-  padding: 15px 0;
   border-bottom: 1px solid #e7e7e9;
+  padding: 15px 0;
+}
+
+#FAQ-section .FAQ-containers:hover {
+  cursor: pointer;
+}
+
+#FAQ-section .FAQ-containers:hover .questions {
+  font-size: 0.95rem;
+}
+
+#FAQ-section .FAQ-containers:hover .FAQ-icons {
+  cursor: pointer;
+  width: 160%;
+  filter: drop-shadow(0 0 3px #f47c57);
 }
 
 #FAQ-section .FAQ-containers .questions {
@@ -107,13 +121,27 @@ body {
 }
 
 footer {
-  display: none;
+  position: absolute;
+  text-align: center;
+  padding: 5px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  top: 140vh;
 }
 
 @media screen and (min-width: 768px) {
   body {
     height: 100vh;
   }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1079) {
+  body {
+    height: 110vh;
+  }
+}
+
+@media screen and (min-width: 768px) {
   #main-container {
     flex-direction: row;
     padding: 0;
@@ -197,7 +225,7 @@ footer {
   #FAQ-section #FAQ-title {
     text-align: left;
     font-size: 2rem;
-    padding: 15% 0 4%;
+    padding: 20% 0 4%;
   }
   #FAQ-section #FAQ {
     padding-bottom: 30px;
@@ -211,10 +239,14 @@ footer {
   #FAQ-section #FAQ .FAQ-containers .questions {
     padding-right: 20px;
   }
-  #FAQ-section #FAQ .FAQ-containers .FAQ-icons:hover {
-    cursor: pointer;
-    width: 160%;
-    filter: drop-shadow(0 0 3px #f47c57);
+  footer {
+    top: 94vh;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1079) {
+  footer {
+    top: 103vh;
   }
 }
 /*# sourceMappingURL=main.css.map */
