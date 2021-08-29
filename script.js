@@ -6,7 +6,7 @@ const icons = document.querySelectorAll('.FAQ-icons');
 const containers = document.querySelectorAll('.FAQ-containers');
 const answers = document.querySelectorAll('.answers');
 const questions = document.querySelectorAll('.questions');
-let height = 150;
+let height = 145;
 
 function showAnswer(x) {
     // Get the answer equivalent index
@@ -94,9 +94,9 @@ function showAnswer(x) {
 window.onresize = () => {
     // Mobile resolution
     if (window.innerWidth < 768) {
-        document.body.style.height = `calc(${height}vh - 5vh)`;
+        document.body.style.height = `calc(${height}vh - 5vw)`;
         // updates footer position
-        document.querySelector('footer').style.top = `calc(${height}vh - 15vh)`;  
+        document.querySelector('footer').style.top = `calc(${height}vh - 13vh)`;  
     }
     // Tablet resolution
     else if (window.innerWidth >= 768 && window.innerWidth < 1080) {

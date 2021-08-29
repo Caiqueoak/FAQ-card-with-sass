@@ -13,7 +13,7 @@ body {
   align-items: center;
   justify-content: center;
   background: linear-gradient(to top, #6565e7, #af67e9) no-repeat;
-  height: 150vh;
+  height: 145vh;
 }
 
 #main-container {
@@ -99,12 +99,14 @@ body {
 
 #FAQ-section .FAQ-containers:hover .questions {
   font-size: 0.95rem;
+  transition: all 0.3s;
 }
 
 #FAQ-section .FAQ-containers:hover .FAQ-icons {
   cursor: pointer;
   width: 160%;
   filter: drop-shadow(0 0 3px #f47c57);
+  transition: all 0.3s;
 }
 
 #FAQ-section .FAQ-containers .questions {
@@ -126,18 +128,18 @@ footer {
   padding: 5px;
   font-size: 0.9rem;
   font-weight: 700;
-  top: 140vh;
+  top: 135vh;
 }
 
 @media screen and (min-width: 768px) {
   body {
-    height: 100vh;
+    height: 110vh;
   }
 }
 
-@media screen and (min-width: 768px) and (max-width: 1079) {
+@media screen and (min-width: 768px) and (min-width: 1080px) {
   body {
-    height: 110vh;
+    height: 100vh;
   }
 }
 
@@ -147,7 +149,7 @@ footer {
     padding: 0;
     height: 100vw;
     max-height: 450px;
-    width: 80%;
+    width: 90%;
     max-width: 850px;
     transform: translateY(0);
   }
@@ -240,13 +242,13 @@ footer {
     padding-right: 20px;
   }
   footer {
-    top: 94vh;
+    top: 103vh;
   }
 }
 
-@media screen and (min-width: 768px) and (max-width: 1079) {
+@media screen and (min-width: 768px) and (min-width: 1080px) {
   footer {
-    top: 103vh;
+    top: 94vh;
   }
 }
 /*# sourceMappingURL=main.css.map */
