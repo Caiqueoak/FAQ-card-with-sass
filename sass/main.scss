@@ -1,7 +1,6 @@
 @import "variables";
 
 // MOBILE RESOLUTION
-
 body {
   @include centered-flex;
   background: linear-gradient(to top, $Soft-blue, $Soft-violet) no-repeat;
@@ -80,6 +79,7 @@ body {
 
       .questions {
         font-size: 0.95rem;
+        color: $Soft-red;
         transition: all 0.3s;
       }
       .FAQ-icons {

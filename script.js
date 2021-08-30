@@ -1,5 +1,6 @@
 /*TODO:
 - ADJUST RESIZE MOBILE PROPORTIONALITY
+- REDO the display of the answer using height to use transition
 */
 
 const icons = document.querySelectorAll('.FAQ-icons');
@@ -18,7 +19,7 @@ function showAnswer(x) {
     if (window.matchMedia('(max-width: 767px)').matches) {
         // Closed FAQ
         if (displayState == 'none') {
-            // Alters the answer's font style
+            // Alters the question's font style
             questions[index].style.fontWeight = '700';
 
             // Flips the image
@@ -35,7 +36,7 @@ function showAnswer(x) {
         }
         // Opened FAQ
         else {
-            // Alters the answer's font style
+            // Alters the question's font style
             questions[index].style.fontWeight = '400';
 
             // Flips the image
@@ -112,5 +113,5 @@ window.onresize = () => {
     }
 }
 
-// calls the showAnswer function to all arrow icons
+// calls the showAnswer function to all FAQ containers
 containers.forEach(x => x.onclick = function() {showAnswer(x)});

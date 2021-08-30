@@ -99,6 +99,7 @@ body {
 
 #FAQ-section .FAQ-containers:hover .questions {
   font-size: 0.95rem;
+  color: #f47c57;
   transition: all 0.3s;
 }
 
