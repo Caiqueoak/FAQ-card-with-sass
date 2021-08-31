@@ -80,8 +80,8 @@ body {
 #FAQ-section #FAQ-title {
   text-align: center;
   color: #1d1e35;
-  font-size: 2rem;
   padding-bottom: 20px;
+  font-size: 2rem;
 }
 
 #FAQ-section .FAQ-containers {
@@ -93,34 +93,20 @@ body {
   padding: 15px 0;
 }
 
-#FAQ-section .FAQ-containers:hover {
-  cursor: pointer;
-}
-
-#FAQ-section .FAQ-containers:hover .questions {
-  font-size: 0.95rem;
-  color: #f47c57;
-  transition: all 0.3s;
-}
-
-#FAQ-section .FAQ-containers:hover .FAQ-icons {
-  cursor: pointer;
-  width: 160%;
-  filter: drop-shadow(0 0 3px #f47c57);
-  transition: all 0.3s;
-}
-
 #FAQ-section .FAQ-containers .questions {
   padding-right: 20px;
+  transition: all 0.3s;
 }
 
 #FAQ-section .FAQ-containers .FAQ-icons {
   width: 140%;
+  transition: all 0.3s;
 }
 
 #FAQ-section .FAQ-containers .answers {
-  display: none;
-  padding-top: 10px;
+  transition: all 0.3s;
+  max-height: 0;
+  overflow: hidden;
 }
 
 footer {
@@ -239,8 +225,17 @@ footer {
     padding: 15px 1% 15px 0;
     border-bottom: 1px solid #e7e7e9;
   }
-  #FAQ-section #FAQ .FAQ-containers .questions {
-    padding-right: 20px;
+  #FAQ-section #FAQ .FAQ-containers:hover {
+    cursor: pointer;
+  }
+  #FAQ-section #FAQ .FAQ-containers:hover .questions {
+    font-size: 0.95rem;
+    color: #f47c57;
+  }
+  #FAQ-section #FAQ .FAQ-containers:hover .FAQ-icons {
+    cursor: pointer;
+    width: 160%;
+    filter: drop-shadow(0 0 3px #f47c57);
   }
   footer {
     top: 103vh;

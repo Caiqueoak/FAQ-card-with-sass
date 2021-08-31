@@ -1,6 +1,5 @@
 /*TODO:
 - ADJUST RESIZE MOBILE PROPORTIONALITY
-- REDO the display of the answer using height to use transition
 */
 
 const icons = document.querySelectorAll('.FAQ-icons');
@@ -13,12 +12,12 @@ function showAnswer(x) {
     // Get the answer equivalent index
     let index = Array.prototype.indexOf.call(containers, x);
     // Get the current display value of the answer
-    let displayState = (getComputedStyle(answers[index]).display);
+    let maxHeight = (getComputedStyle(answers[index]).maxHeight);
 
     // MOBILE RESOLUTION
     if (window.matchMedia('(max-width: 767px)').matches) {
         // Closed FAQ
-        if (displayState == 'none') {
+        if (maxHeight == '0px') {
             // Alters the question's font style
             questions[index].style.fontWeight = '700';
 
@@ -32,7 +31,9 @@ function showAnswer(x) {
             }
             
             // displays the answer
-            answers[index].style.display = 'inline';
+            answers[index].style.maxHeight = '100%';
+            answers[index].style.paddingTop = '5px';
+
         }
         // Opened FAQ
         else {
@@ -49,7 +50,8 @@ function showAnswer(x) {
             }
 
             // Hides the answer
-            answers[index].style.display = 'none';
+            answers[index].style.maxHeight = '0px';
+            answers[index].style.paddingTop = '0px';
         }
         // updates footer position
         document.querySelector('footer').style.top = `${height-10}vh`;   
@@ -57,7 +59,7 @@ function showAnswer(x) {
     // DESKTOP RESOLUTION
     else {
         // Closed FAQ
-        if (displayState == 'none') {
+        if (maxHeight == '0px') {
             // Alters the answer's font style
             questions[index].style.fontWeight = '700';
 
@@ -69,8 +71,9 @@ function showAnswer(x) {
                 height += 15;
             }
             
-            // displays the answer
-            answers[index].style.display = 'inline';
+            // maxHeights the answer
+            answers[index].style.maxHeight = '100%';
+            answers[index].style.paddingTop = '5px';
         }
         // Opened FAQ
         else {
@@ -86,7 +89,8 @@ function showAnswer(x) {
             }
 
             // Hides the answer
-            answers[index].style.display = 'none';
+            answers[index].style.maxHeight = '0px';
+            answers[index].style.paddingTop = '0px';
         }
     }
 }

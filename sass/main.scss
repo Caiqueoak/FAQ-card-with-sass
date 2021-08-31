@@ -63,8 +63,8 @@ body {
   #FAQ-title {
     text-align: center;
     color: $Very-dark-desaturated-blue;
-    font-size: 2rem;
     padding-bottom: 20px;
+    font-size: 2rem;
   }
   .FAQ-containers {
     display: grid;
@@ -74,30 +74,18 @@ body {
     border-bottom: 1px solid $Light-grayish-blue;
     padding: 15px 0;
 
-    &:hover {
-      cursor: pointer;
-
-      .questions {
-        font-size: 0.95rem;
-        color: $Soft-red;
-        transition: all 0.3s;
-      }
-      .FAQ-icons {
-        cursor: pointer;
-        width: 160%;
-        filter: drop-shadow(0 0 3px $Soft-red);
-        transition: all 0.3s;
-      }
-    }
     .questions {
       padding-right: 20px;
+      transition: all 0.3s;
     }
     .FAQ-icons {
       width: 140%;
+      transition: all 0.3s;
     }
     .answers {
-      display: none;
-      padding-top: 10px;
+      transition: all 0.3s;
+      max-height: 0;
+      overflow: hidden;
     }
   }
 }
@@ -206,8 +194,18 @@ footer {
         padding: 15px 1% 15px 0;
         border-bottom: 1px solid $Light-grayish-blue;
 
-        .questions {
-          padding-right: 20px;
+        &:hover {
+          cursor: pointer;
+
+          .questions {
+            font-size: 0.95rem;
+            color: $Soft-red;
+          }
+          .FAQ-icons {
+            cursor: pointer;
+            width: 160%;
+            filter: drop-shadow(0 0 3px $Soft-red);
+          }
         }
       }
     }
